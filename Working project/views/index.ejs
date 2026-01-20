@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data </title>
+</head>
+
+<body>
+  
+    <h2>AJAX Greeting</h2>
+
+    <form id="myform">
+        <input type="text" id="username" name="username" placeholder="username">
+        <button type="submit" >Submit</button>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+        document.getElementById('myform').addEventListener('submit',async(e)=>{
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+
+            const res = await fetch('/api/hello',{
+                method : "POST",
+                headers : {"Content-Type" : "application/json"},
+                body : JSON.stringify({username})
+            });
+
+            const data = await res.json();
+
+            document.getElementById('output').innerText = data.message || data.error;
+        });
+    </script>
+
+</body>
+
+</html>
