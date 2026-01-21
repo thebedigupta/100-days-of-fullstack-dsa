@@ -4,36 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Form Data </title>
 </head>
 
 <body>
-  
-    <h2>AJAX Greeting</h2>
+    <div id="form">
 
-    <form id="myform">
-        <input type="text" id="username" name="username" placeholder="username">
-        <button type="submit" >Submit</button>
-    </form>
+        <h2>AJAX Greating</h2>
+        <form id="myform">
+            <input type="text" name="username" placeholder="username" id="username" minlength="6" required>
+            <input type="text" name="email" placeholder="Email Address" id="email" required>
+            <input type="password" name="password" id="password" minlength="6" required>
+            <button id="submit">Submit</button>
+        </form>
 
-    <p id="output"></p>
+        <p id="output"></p>
+    </div>
 
     <script>
-        document.getElementById('myform').addEventListener('submit',async(e)=>{
+        document.getElementById('myform').addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const username = document.getElementById('username').value;
+            const user = {
+                username: document.getElementById("username").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                password: document.getElementById("password").value.trim()
+            };
 
-            const res = await fetch('/api/hello',{
-                method : "POST",
-                headers : {"Content-Type" : "application/json"},
-                body : JSON.stringify({username})
-            });
+            if (!user.username || !user.email || !user.password) {
+                output.innerText = 'All User fields are required'
+                return;
+            }
+            if (user.username.password < 6) {
+                output.innerText = 'Username cannot less then 3 digit'
+                return;
+            }
+
+            const res = await fetch('/api/hello', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user)
+            })
 
             const data = await res.json();
 
-            document.getElementById('output').innerText = data.message || data.error;
-        });
+            document.getElementById("output").innerText = data.message || data.error;
+        })
     </script>
 
 </body>
