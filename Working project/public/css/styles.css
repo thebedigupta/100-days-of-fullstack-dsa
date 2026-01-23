@@ -7,6 +7,9 @@ body {
   background: #f4f6f8;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .container {
@@ -27,6 +30,8 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 60vh;
+  padding: 20px;
 }
 
 input {
