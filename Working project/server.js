@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const apiRoutes = require('./routes/api');
+const connectDB = require('./config/db');
+const User = require('./models/User')
+connectDB();
 
 const port = 3000;
 
