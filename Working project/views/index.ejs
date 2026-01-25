@@ -32,16 +32,18 @@
                 password: document.getElementById("password").value.trim()
             };
 
+            const output = document.getElementById('output');
+
             if (!user.username || !user.email || !user.password) {
                 output.innerText = 'All User fields are required'
                 return;
             }
-            if (user.username.password < 6) {
+            if (user.username.length < 6) {
                 output.innerText = 'Username cannot less then 3 digit'
                 return;
             }
 
-            const res = await fetch('/api/hello', {
+            const res = await fetch('/api/submit', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user)

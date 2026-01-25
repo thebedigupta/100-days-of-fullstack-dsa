@@ -8,7 +8,7 @@ const MIN_PASSWORD_LENGTH = 6;
 function validateUsername(username) {
   if (!username) return "Username is required";
   if (username.length < MIN_USERNAME_LENGTH)
-    return `username must be ${MIN_USERNAME_LENGTH} characters`;
+    return `Username must be ${MIN_USERNAME_LENGTH} characters`;
   return null;
 }
 
