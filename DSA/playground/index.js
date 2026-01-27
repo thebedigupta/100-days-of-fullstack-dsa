@@ -5,13 +5,14 @@
 //     = [nums[0], nums[2], nums[1], nums[5], nums[3], nums[4]]
 //     = [0,1,2,4,5,3]
 
-let nums = [0, 2, 1, 5, 3, 4];
-function generateArray(num) {
-  let ans = [];
-  for(let i = 0; i < num.length; i++){
-    ans[i] = num[num[i]]
-  }
-  return ans;
-}
+let nums = [1,2,1];
 
-console.log(generateArray(nums));
+function doubleArray(num){
+  let newArray = []
+  for(let i = 0; i < nums.length;i++){
+    console.log(i)
+    for (let j = 0; i< nums.length;j++){
+      console.log(j)
+    }
+  }
+}
