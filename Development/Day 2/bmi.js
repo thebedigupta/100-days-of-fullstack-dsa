@@ -1,18 +1,18 @@
-const height = 1.75; // 1.75 meters ≈ 5 feet 9 inches
-const weight = 100;
+let checkBMI = (weight, height) => {
+  let roundingWeight = Number((weight / (height * height)).toFixed(2));
 
-const value = Number((weight / (height * height)).toFixed(2));
+  let category;
 
-let category;
-if (value < 18.5) {
-  category = 'UnderWeight';
-} else if (value >= 18.5 && value < 24.9) {
-  category = 'Normal';
-} else if (value >= 25 && value < 29.9) {
-  category = 'OverWeight';
-} else {
-  category = 'Obese';
-}
+  if (roundingWeight < 18.5) {
+    category = 'Under Weight';
+  } else if (roundingWeight < 24.9) {
+    category = 'Normal';
+  } else if (roundingWeight < 29.9) {
+    category = 'Over Weight';
+  } else category = 'Obese';
 
-console.log(`BMI : ${value}`);
-console.log(`Category : ${category}`);
+  return { roundingWeight, category };
+};
+
+let data = checkBMI(100, 1.75);
+console.log(`BMI : ${data.roundingWeight}`, `Category : ${data.category}`);
