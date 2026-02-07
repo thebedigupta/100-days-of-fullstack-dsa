@@ -46,6 +46,22 @@ function getItemsByTag(tag) {
 }
 
 displayListRefactored();
+
+// Add new item (push)
+const addItem = ({ name, qty = 1 }) => {
+  // (Optional) Clean ID logic using spread syntax
+  const ids = shoppingList.map((item) => item.id);
+  const newId = ids.length > 0 ? Math.max(...ids) + 1 : 1;
+
+  shoppingList.push({
+    id: newId,
+    item: name, // Mapped name to item
+    quantity: qty, // Mapped qty to quantity
+    purchased: false,
+  });
+
+  console.log(`✅ Added: ${name} (x${qty})`);
+};
 // getTotalItems();
 // getPurchasedItems();
 // getItemsByTag('groceries'); // Add "groceries" tag to some items first
