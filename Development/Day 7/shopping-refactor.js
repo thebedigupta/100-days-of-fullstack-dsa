@@ -45,8 +45,6 @@ function getItemsByTag(tag) {
   console.log(itemNames.join(', ') || 'No items found');
 }
 
-displayListRefactored();
-
 // Add new item (push)
 const addItem = ({ name, qty = 1 }) => {
   // (Optional) Clean ID logic using spread syntax
