@@ -1,0 +1,3 @@
+Hello I am trying to write this file hope it was done gracefully 
+ Date: Thu Feb 12 2026 18:40:31 GMT+0530 (India Standard Time)
+Appending Sucessful
